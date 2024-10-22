@@ -2,3 +2,4 @@ colorama
 pynput
 python-dotenv
 schedule
+datetime

